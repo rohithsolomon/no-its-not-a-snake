@@ -1,0 +1,26 @@
+def findSmallestElement(input_array):
+    smallest = input_array[0]
+    smallest_index = 0
+    for i in range(1, len(input_array)):
+        if input_array[i] < smallest:
+            smallest = input_array[i]
+            smallest_index = i
+    return smallest_index
+
+
+# array1 = [3, 1, 2, 7, 0, 5]
+# idx = findSmallestElement(array1)
+# print("idx", idx, "value", array1[idx])
+
+
+def selectionSort(input_array):
+    new_array = []
+    for i in range(len(input_array)):
+        smallest_idx = findSmallestElement(input_array)
+        new_array.append(input_array[smallest_idx])
+        input_array.pop(smallest_idx)
+    return new_array
+
+
+array1 = [3, 1, 2]
+print(selectionSort(array1))
